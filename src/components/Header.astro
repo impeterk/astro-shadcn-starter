@@ -1,10 +1,46 @@
 ---
 import { SITE_TITLE } from "@/lib/consts";
 import { Button } from "./ui/button";
+import { ThemeSwitcher } from "./react/theme-switch";
+import { Icon } from "astro-icon/components";
+import { cn } from "@/lib/utils";
+const { theme } = Astro.props;
+
+const { pathname } = Astro.url;
+
+const navLinks = [
+  { href: "/", label: "Home", icon: "tabler:home" },
+  { href: "/about", label: "About", icon: "tabler:file-text" },
+];
 ---
 
 <header class="border-b">
-  <nav class="container mx-auto py-4">
+  <nav class="container mx-auto flex items-center py-4">
     <Button variant={"link"}><a href="/">{SITE_TITLE}</a></Button>
+
+    <ul class="ml-auto inline-flex gap-2">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={cn(
+                "text-foreground border-background hover:border-accent-foreground inline-flex items-center justify-center gap-2 border-b px-2 py-2 font-medium",
+                {
+                  "border-accent-foreground text-primary":
+                    link.href === pathname,
+                }
+              )}
+            >
+              <Icon name={link.icon} />
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="ml-auto">
+      <ThemeSwitcher client:load transition:persist active={theme} />
+    </div>
   </nav>
 </header>

@@ -1,21 +1,21 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-
-type Props = CollectionEntry<"blog">["data"];
-
+import ModeSwitcher from "@/lib/scripts/mode-switcher.astro";
+import type { Theme } from "@/lib/types";
 const { title, description } = Astro.props;
+const theme = (Astro.cookies.get("__theme")?.value || "system") as Theme;
 ---
 
-<html lang="en">
+<html lang="en" class={theme}>
   <head>
     <BaseHead title={title} description={description} />
+    {theme === "system" && <ModeSwitcher />}
   </head>
 
   <body>
-    <Header />
+    <Header theme={theme} />
     <main><slot /></main>
     <Footer />
   </body>
