@@ -3,10 +3,11 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION } from "@/lib/consts";
 import { Icon } from "astro-icon/components";
+import CopyButton from "@/components/react/copy-button.tsx";
 ---
 
 <BaseLayout title="Starter" description={SITE_DESCRIPTION}>
-  <div class="container mx-auto py-8">
+  <div class="container mx-auto space-y-4 py-8">
     <Card className="mx-auto max-w-xl">
       <CardHeader> Astro + Shad/CN </CardHeader>
       <CardContent>
@@ -30,6 +31,17 @@ import { Icon } from "astro-icon/components";
           </li>
           <li>Custom favicon and og-image with <code>@vercel/og</code></li>
         </ul>
+      </CardContent>
+    </Card>
+    <Card className="relative mx-auto max-w-xl">
+      <CardContent>
+        <code class="font-mono text-sm font-semibold">
+          npx degit https://github.com/impeterk/astro-shadcn-starter
+        </code>
+        <CopyButton
+          client:load
+          text="npx degit https://github.com/impeterk/astro-shadcn-starter"
+        />
       </CardContent>
     </Card>
   </div>

@@ -25,22 +25,23 @@ function ThemeOption({
 }) {
   return (
     <button
+      aria-checked={isActive}
+      aria-label={`Switch to ${value} theme`}
       className={cn(
-        "relative flex size-8 cursor-default items-center justify-center rounded transition-all [&_svg]:size-4",
+        "relative flex size-8 cursor-default items-center justify-center rounded-full transition-all [&_svg]:size-4",
         isActive ? "bg-muted text-primary" : "text-foreground hover:bg-muted",
       )}
       role="radio"
-      aria-checked={isActive}
-      aria-label={`Switch to ${value} theme`}
+      type="button"
       onClick={() => onClick(value as Theme)}
     >
       {icon}
 
       {isActive && (
         <motion.div
+          className="border-primary absolute inset-0 rounded-full border"
           layoutId="theme-option"
           transition={{ type: "keyframes", duration: 0.3 }}
-          className="border-primary absolute inset-0 rounded border"
         />
       )}
     </button>
@@ -73,15 +74,15 @@ function ThemeSwitcher({ active = "system" }: { active?: Theme }) {
 
   return (
     <div
-      className="bg-background ring-accent inline-flex items-center overflow-hidden rounded ring-1 ring-inset"
+      className="bg-background ring-muted inline-flex items-center overflow-hidden rounded-full ring-1"
       role="radiogroup"
     >
       {THEME_OPTIONS.map((option) => (
         <ThemeOption
           key={option.value}
           icon={option.icon}
-          value={option.value}
           isActive={theme === option.value}
+          value={option.value}
           onClick={handleClick}
         />
       ))}

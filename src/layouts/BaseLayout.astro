@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import ModeSwitcher from "@/lib/scripts/mode-switcher.astro";
+import ThemeSwitcher from "@/lib/scripts/theme-switcher.astro";
 import type { Theme } from "@/lib/types";
 const { title, description } = Astro.props;
 const theme = (Astro.cookies.get("__theme")?.value || "system") as Theme;
@@ -11,7 +11,7 @@ const theme = (Astro.cookies.get("__theme")?.value || "system") as Theme;
 <html lang="en" class={theme}>
   <head>
     <BaseHead title={title} description={description} />
-    {theme === "system" && <ModeSwitcher />}
+    {theme === "system" && <ThemeSwitcher />}
   </head>
 
   <body>
