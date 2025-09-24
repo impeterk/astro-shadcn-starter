@@ -1,7 +1,5 @@
-"use client";
-
 import type { JSX } from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { IconDeviceDesktop, IconMoon, IconSun } from "@tabler/icons-react";
 import { motion } from "motion/react";
