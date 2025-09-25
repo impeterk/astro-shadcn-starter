@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # vercel
 .vercel
+
+/generated/prisma
+
+/generated/prisma
