@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { auth } from "@lib/auth";
+import AuthCard from "@/components/react/auth-card";
+
+const session = await auth.api.getSession({
+  headers: Astro.request.headers,
+});
+---
+
+<BaseLayout title="Protected ">
+  <section class="container mx-auto my-12">
+    <AuthCard client:idle />
+    This page is protected
+    {JSON.stringify(session, null, 2)}
+  </section>
+</BaseLayout>

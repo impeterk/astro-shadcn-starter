@@ -4,13 +4,15 @@ import { Button } from "./ui/button";
 import { ThemeSwitcher } from "./react/theme-switch";
 import { Icon } from "astro-icon/components";
 import { cn } from "@/lib/utils";
-const { theme } = Astro.props;
+const { theme, session = null } = Astro.props;
 
 const { pathname } = Astro.url;
+const authIcon = session ? "tabler:lock-open-2" : "tabler:lock";
 
 const navLinks = [
   { href: "/", label: "Home", icon: "tabler:home" },
-  { href: "/about", label: "About", icon: "tabler:file-text" },
+  { href: "/prisma", label: "Prisma", icon: "tabler:brand-prisma" },
+  { href: "/auth", label: "Auth", icon: authIcon },
 ];
 ---
 

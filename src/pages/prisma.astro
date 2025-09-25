@@ -10,21 +10,23 @@ const users: UserWithPosts[] = await prisma.user.findMany({
 });
 ---
 
-<BaseLayout>
-  {
-    users.map((user) => (
-      <Card>
-        <CardHeader>
-          <CardTitle>{user.name}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul>
-            {user.posts.map((post) => (
-              <li>{post.title}</li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
-    ))
-  }
+<BaseLayout title="Prisma">
+  <section class="container mx-auto my-12 space-y-8">
+    {
+      users.map((user) => (
+        <Card className="mx-auto max-w-lg">
+          <CardHeader>
+            <CardTitle>{user.name}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul>
+              {user.posts.map((post) => (
+                <li>{post.title}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      ))
+    }
+  </section>
 </BaseLayout>
