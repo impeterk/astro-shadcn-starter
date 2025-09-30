@@ -4,8 +4,12 @@ import { Button } from "./ui/button";
 import { ThemeSwitcher } from "./react/theme-switch";
 import { Icon } from "astro-icon/components";
 import { cn } from "@/lib/utils";
-const { theme, session = null } = Astro.props;
+import { auth } from "@/lib/auth";
+const { theme } = Astro.props;
 
+const session = await auth.api.getSession({
+  headers: Astro.request.headers,
+});
 const { pathname } = Astro.url;
 const authIcon = session ? "tabler:lock-open-2" : "tabler:lock";
 

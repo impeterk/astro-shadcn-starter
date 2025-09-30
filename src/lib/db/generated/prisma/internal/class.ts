@@ -22,7 +22,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/home/peter/Code/astro/astro-shadcn-starter/src/lib/db/generated/prisma",
+      "value": "/Users/kudelp/Documents/code/personal/astro-shadcn-starter/src/lib/db/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -31,12 +31,12 @@ const config: runtime.GetPrismaClientConfig = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "rhel-openssl-3.0.x",
+        "value": "darwin-arm64",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/peter/Code/astro/astro-shadcn-starter/prisma/schema.prisma",
+    "sourceFilePath": "/Users/kudelp/Documents/code/personal/astro-shadcn-starter/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../../../../prisma",

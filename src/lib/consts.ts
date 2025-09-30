@@ -1,10 +1,16 @@
 import { loadEnv } from "vite";
-export const { SITE_URL } =
-  loadEnv(process.env.NODE_ENV!, process.cwd(), "") ??
-  "https://astro-starter.peterk.dev";
+export const { SITE_URL = "https://astro-starter.peterk.dev" } = loadEnv(
+  process.env.NODE_ENV!,
+  process.cwd(),
+  "",
+);
+console.log({ SITE_URL });
 
-export const { PORT } =
-  loadEnv(process.env.NODE_ENV!, process.cwd(), "") ?? 4321;
+export const { PORT = 4321 } = loadEnv(
+  process.env.NODE_ENV!,
+  process.cwd(),
+  "",
+);
 
 export const SITE_TITLE = "Astro Starter";
 export const SITE_DESCRIPTION = "Welcome to my astro + react + shadcn starter";
