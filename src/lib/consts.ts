@@ -13,5 +13,5 @@ export const { PORT = 4321 } = loadEnv(
 );
 
 export const SITE_TITLE = "Astro Starter";
-export const SITE_DESCRIPTION = "Welcome to my astro + react + shadcn starter";
+export const SITE_DESCRIPTION = "astro + react + shadcn starter";
 export const BRAND_NAME = "Peter.dev Astro starter";

@@ -22,7 +22,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "/Users/kudelp/Documents/code/personal/astro-shadcn-starter/src/lib/db/generated/prisma",
+      "value": "/home/peter/Code/astro/astro-shadcn-starter/src/lib/db/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -31,21 +31,22 @@ const config: runtime.GetPrismaClientConfig = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "rhel-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/kudelp/Documents/code/personal/astro-shadcn-starter/prisma/schema.prisma",
+    "sourceFilePath": "/home/peter/Code/astro/astro-shadcn-starter/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../../../../prisma",
-  "clientVersion": "6.16.2",
-  "engineVersion": "1c57fdcd7e44b29b9313256c76699e91c3ac3c43",
+  "clientVersion": "6.16.3",
+  "engineVersion": "bb420e667c1820a8c05a38023385f6cc7ef8e83a",
   "datasourceNames": [
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
