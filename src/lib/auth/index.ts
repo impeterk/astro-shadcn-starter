@@ -1,14 +1,9 @@
 import { betterAuth } from "better-auth";
-import { prismaAdapter } from "better-auth/adapters/prisma";
-// If your Prisma file is located elsewhere, you can change the path
-import { PrismaClient } from "@db/generated/prisma/client";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { db } from "../db"; // your drizzle instance
 
-const prisma = new PrismaClient();
 export const auth = betterAuth({
-  database: prismaAdapter(prisma, {
-    provider: "sqlite",
+  database: drizzleAdapter(db, {
+    provider: "sqlite", // or "mysql", "sqlite"
   }),
-  emailAndPassword: {
-    enabled: true,
-  },
 });
