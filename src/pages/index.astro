@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION } from "@/lib/consts";
 import { Icon } from "astro-icon/components";
 import CopyButton from "@/components/react/copy-button.tsx";
+import { AuthLink } from "@/components/react/auth-card";
 ---
 
 <BaseLayout title="Starter" description={SITE_DESCRIPTION}>
@@ -44,5 +45,6 @@ import CopyButton from "@/components/react/copy-button.tsx";
         />
       </CardContent>
     </Card>
+    <AuthLink client:load />
   </div>
 </BaseLayout>
