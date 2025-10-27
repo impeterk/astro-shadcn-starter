@@ -12,6 +12,6 @@ const session = await auth.api.getSession({
   <section class="container mx-auto my-12">
     <AuthCard client:idle />
     This page is protected
-    {JSON.stringify(session, null, 2)}
+    {session && JSON.stringify(session, null, 2)}
   </section>
 </BaseLayout>
