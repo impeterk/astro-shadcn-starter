@@ -15,11 +15,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE_URL,
   integrations: [mdx(), sitemap(), react(), icon()],
-  server: {
-    port: Number(PORT),
-  },
   vite: {
     plugins: [tailwindcss()],
   },
