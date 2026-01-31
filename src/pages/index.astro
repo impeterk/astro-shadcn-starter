@@ -3,7 +3,10 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { SITE_DESCRIPTION } from "@/lib/consts";
 import { Icon } from "astro-icon/components";
-import CopyButton from "@/components/react/copy-button.tsx";
+import CopyButton, {
+  CopyButtonFallback,
+} from "@/components/react/copy-button.tsx";
+export const prerender = true;
 ---
 
 <BaseLayout title="Starter" description={SITE_DESCRIPTION}>
@@ -16,20 +19,33 @@ import CopyButton from "@/components/react/copy-button.tsx";
           Tailwind CSS. You can start building your Astro project with a
           beautiful UI right away!
         </p>
-        <ul class="list-inside list-disc px-4">
-          <li>React</li>
-          <li>Tailwind CSS</li>
-          <li>Shad/CN Components</li>
+        <ul class="prose dark:prose-invert list-inside list-disc px-4">
+          <li><span> React </span></li>
+          <li><span> Tailwind CSS </span></li>
+          <li><span> Shad/CN Components </span></li>
           <li>
-            Astro Icon <Icon
-              name="tabler:brand-tabler"
-              class="inline-flex size-6"
-            /> (tabler icons installed)
+            <span class="inline-flex items-center gap-2">
+              Astro Icon
+              <Icon name="tabler:brand-tabler" class="size-5" />
+              (tabler icons installed)
+            </span>
           </li>
           <li>
-            {"<ClientRouter />"} with Dark Mode + actions to avoid flicker
+            <span>
+              {"<ClientRouter />"} with Dark Mode + actions to avoid flicker
+            </span>
           </li>
-          <li>Custom favicon and og-image with <code>@vercel/og</code></li>
+          <li>
+            <span>
+              Custom favicon and og-image with <code>@vercel/og</code>
+            </span>
+          </li>
+          <li>
+            <span> Drizzle ORM </span>
+          </li>
+          <li>
+            <span> Better Auth + Turso </span>
+          </li>
         </ul>
       </CardContent>
     </Card>
@@ -39,9 +55,11 @@ import CopyButton from "@/components/react/copy-button.tsx";
           npx degit https://github.com/impeterk/astro-shadcn-starter
         </code>
         <CopyButton
-          client:load
+          client:only="react"
           text="npx degit https://github.com/impeterk/astro-shadcn-starter"
-        />
+        >
+          <div slot="fallback"><CopyButtonFallback /></div>
+        </CopyButton>
       </CardContent>
     </Card>
   </div>

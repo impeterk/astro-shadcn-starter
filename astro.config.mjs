@@ -20,7 +20,6 @@ export default defineConfig({
   server: {
     port: Number(PORT),
   },
-
   vite: {
     plugins: [tailwindcss()],
   },
