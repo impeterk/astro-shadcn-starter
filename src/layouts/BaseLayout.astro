@@ -6,6 +6,7 @@ import ThemeSwitcher from "@/lib/scripts/theme-switcher.astro";
 import type { Theme } from "@/lib/types";
 const { title, description } = Astro.props;
 const theme = (Astro.cookies.get("__theme")?.value || "system") as Theme;
+export const prerender = false;
 ---
 
 <html lang="en" class={theme}>
