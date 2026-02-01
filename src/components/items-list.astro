@@ -1,0 +1,69 @@
+---
+import { Icon } from "astro-icon/components";
+import {
+  Item,
+  ItemContent,
+  ItemTitle,
+  ItemGroup,
+  ItemMedia,
+  ItemActions,
+} from "@/components/ui/item.tsx";
+import { Button } from "@/components/ui/button.tsx";
+const list = [
+  { title: "React", icon: "tabler:brand-react", link: "https://react.dev" },
+  {
+    title: "Tailwind CSS",
+    icon: "tabler:brand-tailwind",
+    link: "https://tailwindcss.com",
+  },
+  {
+    title: "Shad/CN Components + Base/UI",
+    icon: "shadcn",
+    link: "https:/ui.shadcn.com",
+  },
+  {
+    title: "Tabler Icons",
+    icon: "tabler:brand-tabler",
+    link: "https://tabler.io",
+  },
+  { title: "Persistent Dark Mode", icon: "tabler:sun-moon" },
+  { title: "Drizzle ORM", icon: "drizzle", link: "https://orm.drizzle.team" },
+  {
+    title: "Better Auth",
+    icon: "tabler:lock",
+    link: "https://better-auth.com",
+  },
+  { title: "Turso", icon: "turso", link: "https://turso.tech" },
+];
+---
+
+<ItemGroup>
+  {
+    list.map((el) => (
+      <Item variant={"outline"}>
+        {el?.icon && (
+          <ItemMedia variant="icon">
+            <Icon name={el.icon} />
+          </ItemMedia>
+        )}
+        <ItemContent>
+          <ItemTitle>{el.title}</ItemTitle>
+        </ItemContent>
+        {el?.link && (
+          <ItemActions>
+            <Button variant={"ghost"} className="px-0">
+              <a
+                href={el.link}
+                target="_blank"
+                rel="nofollow noref"
+                class="inline-flex size-full flex-col justify-center px-2"
+              >
+                <Icon name="tabler:chevron-right" />
+              </a>
+            </Button>
+          </ItemActions>
+        )}
+      </Item>
+    ))
+  }
+</ItemGroup>

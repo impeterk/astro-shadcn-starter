@@ -15,7 +15,7 @@ const authIcon = session ? "tabler:lock-open-2" : "tabler:lock";
 
 const navLinks = [
   { href: "/", label: "Home", icon: "tabler:home" },
-  { href: "/drizzle", label: "Drizzle", icon: "drizzle" },
+  // { href: "/drizzle", label: "Drizzle", icon: "drizzle" },
   { href: "/auth", label: "Auth", icon: authIcon },
 ];
 ---
@@ -35,7 +35,7 @@ const navLinks = [
                 {
                   "border-accent-foreground text-primary":
                     link.href === pathname,
-                }
+                },
               )}
             >
               <Icon name={link.icon} />

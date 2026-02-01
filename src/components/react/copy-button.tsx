@@ -1,19 +1,18 @@
 import { Button } from "../ui/button";
 import { IconClipboard, IconClipboardCheck } from "@tabler/icons-react";
 import { useRef, useState } from "react";
-import { useClipboard } from "@reactuses/core";
+import { useCopyToClipboard } from "@reactuses/core";
 export default function CopyButton({ text }: { text: string }) {
   const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [copied, setCopied] = useState(false);
-  const [_, copy] = useClipboard();
+  const [_, copy] = useCopyToClipboard();
   function handleClick() {
     if (timeoutId.current) {
       clearTimeout(timeoutId.current);
     }
     setCopied(true);
+    copy(text);
     timeoutId.current = setTimeout(() => {
-      copy(text);
-      console.log("timeout");
       setCopied(false);
     }, 750);
   }

@@ -4,7 +4,6 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { authClient } from "@/lib/auth/client";
-import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 
 export default function AuthCard() {
   const [email, setEmail] = useState("bob@prisma.io");
@@ -46,30 +45,5 @@ export default function AuthCard() {
         <Button onClick={handleSignIn}>SignIn</Button>
       </CardContent>
     </Card>
-  );
-}
-
-export function AuthLink() {
-  const [open, setOpen] = useState(false);
-  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    e.preventDefault();
-    window.history.pushState({}, "", "/auth");
-    setOpen(true);
-  }
-  function handleClose(e: boolean) {
-    setOpen(e);
-    window.history.pushState({}, "", "/");
-  }
-  return (
-    <Dialog open={open} onOpenChange={handleClose}>
-      <DialogTrigger>
-        <a href="/auth" onClick={handleClick} className="underline">
-          Auth Card
-        </a>
-      </DialogTrigger>
-      <DialogContent>
-        <AuthCard />
-      </DialogContent>
-    </Dialog>
   );
 }
