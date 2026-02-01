@@ -19,7 +19,6 @@
     "@fontsource-variable/geist-mono": "^5.2.7",
     "@iconify-json/tabler": "^1.2.26",
     "@libsql/client": "^0.17.0",
-    "@reactuses/core": "^6.1.11",
     "@tabler/icons-react": "^3.36.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
