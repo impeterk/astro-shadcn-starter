@@ -1,8 +1,8 @@
 export default function Favicon() {
   return (
     <div
-      tw="flex h-full w-full items-center justify-center rounded-lg bg-slate-100 text-amber-500"
-      style={{ fontSize: "42px" }}
+      tw="flex h-full w-full items-center justify-center rounded-lg bg-slate-100"
+      style={{ fontSize: "42px", color: "#0f172b" }}
     >
       <svg fill="none" viewBox="0 0 32 32" height="1em" width="1em">
         <path
