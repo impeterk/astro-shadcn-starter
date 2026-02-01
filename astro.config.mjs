@@ -12,7 +12,7 @@ import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
-  base: 'https://astro-starter.peterk.dev',
+  site: 'https://astro-starter.peterk.dev',
   integrations: [mdx(), sitemap(), react(), icon()],
   vite: {
     plugins: [tailwindcss()],
