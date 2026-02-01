@@ -135,8 +135,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
+@utility container {
+  @apply w-full max-w-7xl mx-0 px-6 sm:px-4 xl:px-0
+}
