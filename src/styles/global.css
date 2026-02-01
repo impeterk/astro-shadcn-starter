@@ -142,5 +142,5 @@
 }
 
 @utility container {
-  @apply w-full max-w-7xl mx-0 px-6 sm:px-4 xl:px-0
+  @apply w-full max-w-7xl mx-auto px-6 sm:px-4 xl:px-0
 }
