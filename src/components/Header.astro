@@ -15,7 +15,7 @@ const authIcon = session ? "tabler:lock-open-2" : "tabler:lock";
 
 const navLinks = [
   { href: "/", label: "Home", icon: "tabler:home" },
-  // { href: "/drizzle", label: "Drizzle", icon: "drizzle" },
+  { href: "/drizzle", label: "Drizzle", icon: "drizzle" },
   { href: "/auth", label: "Auth", icon: authIcon },
 ];
 ---
@@ -24,25 +24,33 @@ const navLinks = [
   <nav class="container mx-auto flex items-center py-4">
     <Button variant={"link"}><a href="/">{SITE_TITLE}</a></Button>
 
-    <ul class="ml-auto inline-flex gap-2">
+    <ul class="ml-auto inline-flex gap-2" transition:name="nav-bar">
       {
-        navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class={cn(
-                "text-foreground border-background hover:border-accent-foreground inline-flex items-center justify-center gap-2 border-b px-2 py-2 font-medium",
-                {
-                  "border-accent-foreground text-primary":
-                    link.href === pathname,
-                },
+        navLinks.map((link) => {
+          const active = link.href === pathname;
+          return (
+            <li class="group relative">
+              <a
+                aria-current={active && "page"}
+                href={link.href}
+                class={cn(
+                  "text-foreground inline-flex items-center justify-center gap-2 px-2 py-2 font-medium",
+                )}
+              >
+                <Icon name={link.icon} />
+                {link.label}
+              </a>
+              {active && (
+                <div
+                  transition:name={`active-indicator`}
+                  class={cn(
+                    "bg-accent-foreground absolute bottom-0 left-0 h-0.5 w-full",
+                  )}
+                />
               )}
-            >
-              <Icon name={link.icon} />
-              {link.label}
-            </a>
-          </li>
-        ))
+            </li>
+          );
+        })
       }
     </ul>
     <div class="ml-auto">
