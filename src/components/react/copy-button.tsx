@@ -1,5 +1,5 @@
+import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
-import { IconClipboard, IconClipboardCheck } from "@tabler/icons-react";
 import { useRef, useState } from "react";
 export default function CopyButton({ text }: { text: string }) {
   const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -14,7 +14,6 @@ export default function CopyButton({ text }: { text: string }) {
       setCopied(false);
     }, 750);
   }
-  const Icon = copied ? IconClipboardCheck : IconClipboard;
 
   return (
     <Button
@@ -22,14 +21,21 @@ export default function CopyButton({ text }: { text: string }) {
       onClick={handleClick}
       className="absolute top-0 right-0"
     >
-      <Icon />
+      <span
+        className={cn(
+          "size-4",
+          copied
+            ? "icon-[tabler--clipboard-check]"
+            : "icon-[tabler--clipboard]",
+        )}
+      />
     </Button>
   );
 }
 export function CopyButtonFallback() {
   return (
     <Button variant={"ghost"} className="absolute top-0 right-0">
-      <IconClipboard />
+      <span className="icon-[tabler--clipboard-check] size-4" />
     </Button>
   );
 }

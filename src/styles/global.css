@@ -3,6 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist-mono";
 @plugin "@tailwindcss/typography";
+@plugin "@iconify/tailwind4";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -129,6 +130,9 @@
   html {
     @apply font-mono;
   }
+  html.system {
+    color-scheme: light dark;
+  }
 }
 
 @layer base {
@@ -142,5 +146,5 @@
 }
 
 @utility container {
-  @apply w-full max-w-7xl mx-auto px-6 sm:px-4 xl:px-0
+  @apply mx-auto w-full max-w-7xl px-6 sm:px-4 xl:px-0;
 }

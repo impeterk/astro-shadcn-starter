@@ -1,8 +1,7 @@
-import type { JSX } from "react";
 import { useState } from "react";
 
-import { IconDeviceDesktop, IconMoon, IconSun } from "@tabler/icons-react";
 import { motion } from "motion/react";
+import { useMediaQuery } from "@reactuses/core";
 
 import { cn } from "@/lib/utils";
 import type { Theme } from "@/lib/types";
@@ -16,7 +15,7 @@ function ThemeOption({
   isActive,
   onClick = defFunc,
 }: {
-  icon: JSX.Element;
+  icon: string;
   value: string;
   isActive?: boolean;
   onClick?: (value: Theme) => void;
@@ -33,7 +32,7 @@ function ThemeOption({
       type="button"
       onClick={() => onClick(value as Theme)}
     >
-      {icon}
+      <span className={icon} />
 
       {isActive && (
         <motion.div
@@ -48,15 +47,15 @@ function ThemeOption({
 
 const THEME_OPTIONS = [
   {
-    icon: <IconDeviceDesktop />,
+    icon: "icon-[tabler--device-desktop]",
     value: "system",
   },
   {
-    icon: <IconSun />,
+    icon: "icon-[tabler--sun]",
     value: "light",
   },
   {
-    icon: <IconMoon />,
+    icon: "icon-[tabler--moon]",
     value: "dark",
   },
 ];
@@ -64,10 +63,15 @@ const THEME_OPTIONS = [
 function ThemeSwitcher({ active = "system" }: { active?: Theme }) {
   const [theme, setTheme] = useState(active);
 
+  const isDark = useMediaQuery("(prefers-color-scheme: dark)");
+
   async function handleClick(theme: Theme) {
     setTheme(theme);
+    actions.switchTheme(theme);
+    if (theme === "system") {
+      theme += isDark ? " dark" : " light";
+    }
     document.documentElement.className = theme;
-    await actions.switchTheme(theme);
   }
 
   return (
