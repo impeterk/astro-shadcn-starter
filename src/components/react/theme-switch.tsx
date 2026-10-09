@@ -63,7 +63,7 @@ const THEME_OPTIONS = [
 function ThemeSwitcher({ active = "system" }: { active?: Theme }) {
   const [theme, setTheme] = useState(active);
 
-  const isDark = useMediaQuery("(prefers-color-scheme: dark)");
+  const isDark = useMediaQuery("(prefers-color-scheme: dark)", false);
 
   async function handleClick(theme: Theme) {
     setTheme(theme);

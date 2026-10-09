@@ -1,8 +1,9 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import "../styles/global.css";
+import tw from "../styles/global.css?url";
 import { SITE_TITLE, BRAND_NAME } from "@/lib/consts";
+import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { URL } from "node:url";
 import LoadingIndicator from "@/lib/scripts/loading-indicator.astro";
@@ -20,6 +21,8 @@ const { title, description, image = "/og-image.png" } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href={tw} />
+<Font cssVariable="--font-geist-mono" />
 <link rel="icon" type="image/png" href="/icon.png" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
